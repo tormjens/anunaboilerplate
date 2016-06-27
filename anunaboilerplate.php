@@ -19,13 +19,20 @@ define( 'ANUNABOILERPLATE_DIR', plugin_dir_path( __FILE__ ) );
 define( 'ANUNABOILERPLATE_URL', plugin_dir_url( __FILE__ ) );
 
 /**
+ * The url to the plugin
+ */
+define( 'ANUNABOILERPLATE_VERSION', '1.0.0' );
+
+/**
  * Autoload all classes in the lib/-folder
  * @param  string $className The name of class
  * @return void
  */
 function anunaboilerplate_autoload($className) {
     $segments = explode( '_', $className );
-    $name = strtolower( end( $segments ) );
+    unset($segments[0]);
+    $name = array_map('strtolower', $segments);
+    $name = implode('/', $name);
     $filename = ANUNABOILERPLATE_DIR . "lib/" . $name. ".php";
     if (is_readable($filename)) {
         require $filename;
