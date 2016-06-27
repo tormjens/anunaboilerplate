@@ -1,0 +1,7 @@
+{
+  "name": "anunaboilerplate",
+  "dependencies": {
+    "gulp": "^3.9.1",
+    "laravel-elixir": "^6.0.0-4"
+  }
+}
